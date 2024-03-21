@@ -1,5 +1,5 @@
 body{
-  background-color: #f69044;
+  background-color: #7fffd4;
 }
 
 h1{
@@ -7,30 +7,36 @@ h1{
   margin: auto;
   margin-top: 1em;
   text-align: center;
-  background-color: #fdeadc;
+  background-color: #c0fce8;
   padding: 1em;
-  border-radius: 25px;
+  border-radius: 45px;
 }
 
 .container{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-around;
   padding: 1em;
   margin: 1em 2em 1em 2em;
 }
 
 .cake{
-  background-color: #fdeadc;
+  background-color: #c0fce8;
   padding: 1em;
-  border-radius: 25px;
+  border-radius: 45px;
+  margin: 1em;
 }
 
-#price{
-  width: 20%;
-  margin: auto;
-  margin-top: 1em;
-  text-align: center;
-  background-color: #fdeadc;
-  padding: 1em;
-  border-radius: 25px;
+.cakeForm-container{
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
+
+.cakeForm{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+/* .cakeForm */

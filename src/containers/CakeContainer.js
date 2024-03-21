@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Cake from "../components/Cake";
 import CakeForm from "../components/CakeForm";
+import SearchForm from "../components/SearchForm";
 
 const CakeContainer = () => {
 
@@ -27,11 +28,20 @@ const CakeContainer = () => {
         }
       ]);
 
+    // Add a new cake
     const makeCake = (newCake) => {
         setCakes([...cakes, newCake]);
     }
 
-    const mappedCakes = cakes.map((cake, id) => {
+    // Search for cakes
+    const [filteredCakes, setFilteredCakes] = useState(cakes);
+    const filterCakes = (searchInput) =>{
+        setFilteredCakes([cakes.filter( (cake) => {
+            (cake.includes(searchInput))
+        })]);
+    }
+
+    const mappedCakes = filteredCakes.map((cake, id) => {
         return <Cake 
                     cake={cake}
                     />
@@ -39,11 +49,14 @@ const CakeContainer = () => {
 
     return(
         <>
+        <div>
+            <SearchForm filterCakes={filterCakes} className="searchForm"/>
+        </div>
             <div className="container">
                 {mappedCakes}
             </div>
-            <div className="cakeForm">
-                <CakeForm makeCake={makeCake}/>
+            <div className="cakeForm-container">
+                <CakeForm makeCake={makeCake} className="cakeForm"/>
             </div>
             
         </>
