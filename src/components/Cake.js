@@ -1,8 +1,6 @@
-const Cake = ({cake, updateRevenue}) => {
+const Cake = ({cake}) => {
 
-    const handleButtonClick = () => {
-        updateRevenue(cake.price)
-    }
+
 
     return(
         <div className="cake">
@@ -14,8 +12,7 @@ const Cake = ({cake, updateRevenue}) => {
                 })}
             </ul>
             <p>Rating: {cake.rating}</p>
-            <p>Price: £{cake.price}</p>
-            <button onClick={handleButtonClick}>Sell Cake</button>
+            
         </div>
     )
 
