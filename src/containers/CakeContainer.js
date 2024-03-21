@@ -41,7 +41,7 @@ const CakeContainer = () => {
         })]);
     }
 
-    const mappedCakes = filteredCakes.map((cake, id) => {
+    const mappedCakes = cakes.map((cake, id) => {
         return <Cake 
                     cake={cake}
                     />
