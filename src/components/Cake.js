@@ -1,6 +1,13 @@
 const Cake = ({cake}) => {
 
+    const ratingHandler = (rating) => {
+        let starRating = ""
+        for (let i = 0; i < rating; i++) { 
+            starRating += "⭐" 
+        } return starRating;
+    }
 
+    const starRating = ratingHandler(cake.rating);
 
     return(
         <div className="cake">
@@ -11,7 +18,7 @@ const Cake = ({cake}) => {
                     return <li>{ingredient}</li>
                 })}
             </ul>
-            <p>Rating: {cake.rating}</p>
+            <p>Rating: {starRating}</p>
             
         </div>
     )

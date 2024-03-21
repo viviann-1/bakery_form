@@ -27,7 +27,9 @@ const CakeContainer = () => {
         }
       ]);
 
-   
+    const makeCake = (newCake) => {
+        setCakes([...cakes, newCake]);
+    }
 
     const mappedCakes = cakes.map((cake, id) => {
         return <Cake 
@@ -40,8 +42,8 @@ const CakeContainer = () => {
             <div className="container">
                 {mappedCakes}
             </div>
-            <div>
-                {/* //cake form */}
+            <div className="cakeForm">
+                <CakeForm makeCake={makeCake}/>
             </div>
             
         </>

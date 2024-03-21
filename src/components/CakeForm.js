@@ -4,9 +4,19 @@ const CakeForm = ({makeCake}) =>{
     const [ingredients, setIngredients] = useState([]);
     const [rating, setRating] = useState(0);
     
-const handleSubmit () => {
-    
-}
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+
+        let ingredientsArray = ingredients.split(",");
+
+        const newCake = {
+            cakeName,
+            ingredients: ingredientsArray,
+            rating
+        }
+
+        makeCake(newCake);
+    }
 
  return(
     <>
@@ -16,25 +26,30 @@ const handleSubmit () => {
             type="text" 
             name="cakeName" 
             placeholder="Insert cake name" 
-            value={cakeName} 
+            value={cakeName}
+            required 
             onChange={(evt) => setCakeName(evt.target.value)} />
         <input 
             type="text"
             name="ingredients" 
             placeholder="List ingredients" 
-            value={ingredients} 
+            value={ingredients}
+            required 
             onChange={(evt) => setIngredients(evt.target.value)} />
         <input 
             type="number" 
             name="rating" 
             placeholder="Rate your cake" 
-            value={rating} 
+            value={rating}
+            min={0} max={5} 
             onChange={(evt) => setRating(evt.target.value)} />
-
+        <input 
+            type="submit"
+            value="Make your cake!" />
         </form>
-
-
     </>
  );
 
 }
+
+export default CakeForm;
